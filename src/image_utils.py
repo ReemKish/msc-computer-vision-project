@@ -38,18 +38,27 @@ def process_bounding_box(img : ArrayNxMx3[np.uint8], polygon : ArrayNx2[np.float
     box = np.int0(box)
     # based on post at https://goo.gl/Q92hdp
     center = rect[0]
-    size = rect[1]
+    width, height = rect[1]
+    size1 = (width, height)
+    size2 = (width + 5, height + 5)
     angle = rect[2]
-    center, size = tuple(map(int, center)), tuple(map(int, size))
+    center = tuple(map(int, center))
+    # size1   = tuple(map(int, size1))
+    size2   = tuple(map(int, size2))
     rows, cols = img.shape[0], img.shape[1]
     M = cv.getRotationMatrix2D(center, angle, 1)
     img_rot = cv.warpAffine(img, M, (cols, rows))
-    out = cv.getRectSubPix(img_rot, size, center)
-    if out.shape[0] < out.shape[1]:
-        out = cv.rotate(out, cv.ROTATE_90_CLOCKWISE)
-    out = cv.resize(out, NET_INPUT_SHAPE)
-    out = cv.cvtColor(out, cv.COLOR_BGR2GRAY)
-    return out
+    # out1 = cv.getRectSubPix(img_rot, size1, center)
+    out2 = cv.getRectSubPix(img_rot, size2, center)
+    # if out1.shape[0] < out1.shape[1]: out1 = cv.rotate(out1, cv.ROTATE_90_CLOCKWISE)
+    if out2.shape[0] < out2.shape[1]: out2 = cv.rotate(out2, cv.ROTATE_90_CLOCKWISE)
+    # out1 = cv.resize(out1, (NET_INPUT_SHAPE[1], NET_INPUT_SHAPE[0]))
+    out2 = cv.resize(out2, (NET_INPUT_SHAPE[1], NET_INPUT_SHAPE[0]))
+    out2 = cv.cvtColor(out2, cv.COLOR_BGR2GRAY)
+
+    # plt.imshow(np.concatenate((out1, out2), axis=1))
+    # plt.show()
+    return out2
 
 
 

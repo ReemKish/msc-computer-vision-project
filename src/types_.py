@@ -16,10 +16,22 @@ DType = TypeVar("DType", bound=np.generic)
 ArrayNxMx3 = Annotated[npt.NDArray[DType], Literal['N', 'M', 3]]
 ArrayNxM = Annotated[npt.NDArray[DType], Literal['N', 'M']]
 ArrayNxMxK = Annotated[npt.NDArray[DType], Literal['N', 'M', 'K']]
+ArrayNxMx3xK = Annotated[npt.NDArray[DType], Literal['N', 'M', 3, 'K']]
 ArrayNx2 = Annotated[npt.NDArray[DType], Literal['N', 2]]
 ArrayN = Annotated[npt.NDArray[DType], Literal['N']]
 Array5xN = Annotated[npt.NDArray[DType], Literal[5, 'N']]
+Array5 = Annotated[npt.NDArray[DType], Literal[5]]
 TrainTestData = namedtuple("TrainTestData", ('train_dataloader', 'test_dataloader'))
+
+class Character(NamedTuple):
+    """
+    Represents a single character.
+    """
+    idx : int
+    char : str
+    pred: Array5[np.float]
+
+
 
 
 class FitResult(NamedTuple):

@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+src/data
+src/hw2-213057094_207041146_325335461
+src/experiments.py

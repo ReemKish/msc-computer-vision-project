@@ -18,23 +18,28 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using {device} device")
 
 
-class DirectClassifier(nn.Module):
+class FCN(nn.Module):
     """
-    A direct classifier model.
+    A Fully Convolutional Network (FCN).
+    Can accept dynamically-shaped input.
     """
     def __init__(self):
-        """
-        :param out_classes: Number of classes to output in the final layer.
-        :param filters: A list of of length N containing the number of
-            filters in each conv layer.
-        :param pool_every: P, the number of conv layers before each max-pool.
-        :param hidden_dims: List of of length M containing hidden dimensions of
-            each Linear layer (not including the output layer).
-        """
         super().__init__()
+        self.layers = nn.Sequential(
+           
+        )
+
+
+class DNN(nn.Module):
+    """
+    A simple fully-connected classifier model.
+    """
+    def __init__(self):
+        super().__init__()
+        inpt_size = NET_INPUT_SHAPE[0] * NET_INPUT_SHAPE[1] * NET_INPUT_SHAPE[2]
         self.flatten = nn.Flatten()
         self.layers = nn.Sequential(
-            nn.Linear(40 * 40, 1024),
+            nn.Linear(inpt_size, 1024),
             nn.PReLU(),
             nn.Linear(1024, 512),
             nn.Dropout(0.2),
@@ -63,7 +68,7 @@ class DirectClassifier(nn.Module):
         out = self.layers(x)
         return out
 
-class ConvClassifier(nn.Module):
+class CNN(nn.Module):
     """
     A convolutional classifier model.
 
@@ -99,23 +104,20 @@ class ConvClassifier(nn.Module):
         # Use only dimension-preserving 3x3 convolutions. Apply 2x2 Max
         # Pooling to reduce dimensions.
         # ====== YOUR CODE: ======
-        CONV = 3  # use 3x3 convolutions
-        POOL = 2  # apply 2x2 max pooling
-        P = self.pool_every
-        N = len(self.filters)
-        layers += [
-            nn.Conv2d(in_channels, self.filters[0], CONV, padding=1),
-            nn.ReLU()
+        layers = [
+            nn.Conv2d(in_channels, 64, 3),
+            nn.BatchNorm2d(64),
+            nn.PReLU(),
+            nn.MaxPool2d(2),
+            nn.Conv2d(64, 64, 3),
+            nn.BatchNorm2d(64),
+            nn.PReLU(),
+            nn.MaxPool2d(2),
+            nn.Conv2d(64, 32, 3),
+            nn.BatchNorm2d(32),
+            nn.PReLU(),
+            nn.MaxPool2d(2),
         ]
-        for i in range(N // P):
-            for j in range(P):
-                if (i ,j)  == (0, 0): continue
-                layers += [
-                    nn.Conv2d(self.filters[i*P+j-1], self.filters[i*P+j], CONV, padding=1),
-                    nn.ReLU()
-                ]
-            layers += [ nn.MaxPool2d(POOL) ]
-
         # ========================
         seq = nn.Sequential(*layers)
         return seq
@@ -138,16 +140,40 @@ class ConvClassifier(nn.Module):
 
         M = len(self.hidden_dims)
         n_channels = num_flat_features(self.feature_extractor(torch.empty(1, in_channels, in_h, in_w))[1:])
-        layers += [ nn.Linear(n_channels, self.hidden_dims[0]), nn.ReLU() ]  # first fc
-        for i in range(1, M):
-            layers += [
-                nn.Linear(self.hidden_dims[i-1], self.hidden_dims[i]),
-                nn.ReLU()
-            ]
-        layers += [ nn.Linear(self.hidden_dims[-1], self.out_classes) ]  # last fc
-        layers += [ nn.Softmax(dim=1) ]
-        # ========================
-        seq = nn.Sequential(*layers)
+        # layers += [ nn.Linear(n_channels, self.hidden_dims[0]), nn.ReLU() ]  # first fc
+        # for i in range(1, M):
+        #     layers += [
+        #         nn.Linear(self.hidden_dims[i-1], self.hidden_dims[i]),
+        #         nn.ReLU()
+        #     ]
+        # layers += [ nn.Linear(self.hidden_dims[-1], self.out_classes) ]  # last fc
+        # layers += [ nn.Softmax(dim=1) ]
+        # # ========================
+        # seq = nn.Sequential(*layers)
+        seq = nn.Sequential(
+            nn.Linear(n_channels, 1024),
+            nn.PReLU(),
+            nn.Linear(1024, 512),
+            nn.Dropout(0.5),
+            nn.PReLU(),
+            nn.BatchNorm1d(512),
+            nn.Linear(512, 1024),
+            nn.Dropout(0.5),
+            nn.PReLU(),
+            nn.BatchNorm1d(1024),
+            nn.Linear(1024, 512),
+            nn.PReLU(),
+            nn.BatchNorm1d(512),
+            nn.Linear(512, 256),
+            nn.PReLU(),
+            nn.Dropout(0.5),
+            nn.BatchNorm1d(256),
+            nn.Linear(256, 64),
+            nn.PReLU(),
+            nn.BatchNorm1d(64),
+            nn.Linear(64, 5),
+            nn.LogSoftmax(dim=1)
+        )
         return seq
 
     def forward(self, x):

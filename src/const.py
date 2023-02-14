@@ -7,7 +7,7 @@ from typing import *
 
 TRAIN_DATASET_FILE = "data/train.h5"
 
-NET_INPUT_SHAPE = (40, 40)
+NET_INPUT_SHAPE = (60, 40)
 NET_INPUT_SIZE = NET_INPUT_SHAPE[0] * NET_INPUT_SHAPE[1]
 
 FONTS = [

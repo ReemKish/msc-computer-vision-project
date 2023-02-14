@@ -13,8 +13,8 @@ class Trainer():
     A class abstracting the various tasks of training models.
     Provides methods at multiple levels of granularity:
     - Multiple epochs (fit)
-    - Single epoch (train_epoch/test_epoch)
-    - Single batch (train_batch/test_batch)
+    - Single epoch (train_epoch/validate_epoch)
+    - Single batch (train_batch/validate_batch)
     """
     def __init__(self, model, loss_fn, optimizer, device=None):
         """
@@ -32,7 +32,7 @@ class Trainer():
         if self.device:
             model.to(self.device)
 
-    def fit(self, dl_train: DataLoader, dl_test: DataLoader,
+    def fit(self, dl_train: DataLoader, dl_valid: DataLoader,
             num_epochs, checkpoints: str = None,
             early_stopping: int = None,
             print_every=1, **kw) -> FitResult:
@@ -40,30 +40,30 @@ class Trainer():
         Trains the model for multiple epochs with a given training set,
         and calculates validation loss over a given validation set.
         :param dl_train: Dataloader for the training set.
-        :param dl_test: Dataloader for the test set.
+        :param dl_valid: Dataloader for the valid set.
         :param num_epochs: Number of epochs to train for.
         :param checkpoints: Whether to save model to file every time the
-            test set accuracy improves. Should be a string containing a
+            valid set accuracy improves. Should be a string containing a
             filename without extension.
         :param early_stopping: Whether to stop training early if there is no
-            test loss improvement for this number of epochs.
+            valid loss improvement for this number of epochs.
         :param print_every: Print progress every this number of epochs.
-        :return: A FitResult object containing train and test losses per epoch.
+        :return: A FitResult object containing train and valid losses per epoch.
         """
         actual_num_epochs = 0
-        train_loss, train_acc, test_loss, test_acc = [], [], [], []
+        train_loss, train_acc, valid_loss, valid_acc = [], [], [], []
 
         best_acc = None
         epochs_without_improvement = 0
 
         for epoch in range(num_epochs):
-            verbose = False  # pass this to train/test_epoch.
+            verbose = False  # pass this to train/validate_epoch.
             if epoch % print_every == 0 or epoch == num_epochs-1:
                 verbose = True
             self._print(f'--- EPOCH {epoch+1}/{num_epochs} ---', verbose)
 
             # TODO: Train & evaluate for one epoch
-            # - Use the train/test_epoch methods.
+            # - Use the train/validate_epoch methods.
             # - Save losses and accuracies in the lists above.
             # - Optional: Implement checkpoints. You can use torch.save() to
             #   save the model to a file.
@@ -71,16 +71,16 @@ class Trainer():
             #   simple regularization technique that is highly recommended.
             # ====== YOUR CODE: ======
             result_train = self.train_epoch(dl_train, **kw)
-            result_test = self.test_epoch(dl_test, **kw)
+            result_valid = self.validate_epoch(dl_valid, **kw)
             train_loss.append((sum(result_train.losses)/(len(result_train.losses))).item())
             train_acc.append(result_train.accuracy.item())
-            test_loss.append((sum(result_test.losses)/(len(result_test.losses))).item())
-            test_acc.append(result_test.accuracy.item())
+            valid_loss.append((sum(result_valid.losses)/(len(result_valid.losses))).item())
+            valid_acc.append(result_valid.accuracy.item())
             
-            if best_acc is not None and best_acc <= test_loss[-1]:
+            if best_acc is not None and best_acc <= valid_loss[-1]:
                 epochs_without_improvement+=1
             else:
-                best_acc = test_loss[-1]
+                best_acc = valid_loss[-1]
                 epochs_without_improvement = 0
             
             if epochs_without_improvement == early_stopping:
@@ -88,7 +88,7 @@ class Trainer():
             # ========================
 
         return FitResult(actual_num_epochs,
-                         train_loss, train_acc, test_loss, test_acc)
+                         train_loss, train_acc, valid_loss, valid_acc)
 
     def train_epoch(self, dl_train: DataLoader, **kw) -> EpochResult:
         """
@@ -100,15 +100,15 @@ class Trainer():
         self.model.train(True)  # set train mode
         return self._foreach_batch(dl_train, self.train_batch, **kw)
 
-    def test_epoch(self, dl_test: DataLoader, **kw) -> EpochResult:
+    def validate_epoch(self, dl_valid: DataLoader, **kw) -> EpochResult:
         """
-        Evaluate model once over a test set (single epoch).
-        :param dl_test: DataLoader for the test set.
+        Evaluate model once over a valid set (single epoch).
+        :param dl_valid: DataLoader for the valid set.
         :param kw: Keyword args supported by _foreach_batch.
         :return: An EpochResult for the epoch.
         """
-        self.model.train(False)  # set evaluation (test) mode
-        return self._foreach_batch(dl_test, self.test_batch, **kw)
+        self.model.train(False)  # set evaluation (valid) mode
+        return self._foreach_batch(dl_valid, self.validate_batch, **kw)
 
     def train_batch(self, batch) -> BatchResult:
         """
@@ -140,7 +140,7 @@ class Trainer():
 
         return BatchResult(loss, num_correct)
 
-    def test_batch(self, batch) -> BatchResult:
+    def validate_batch(self, batch) -> BatchResult:
         """
         Runs a single batch forward through the model and calculates loss.
         :param batch: A single batch of data  from a data loader (might
