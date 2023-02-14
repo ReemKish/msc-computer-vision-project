@@ -19,7 +19,7 @@ from torchvision.transforms import ToTensor, Lambda
 import cv2 as cv
 
 class CharacterDataset(Dataset):
-    def __init__(self, character: str, images: ArrayNxMx3xK, font : ArrayN, word : ArrayN):
+    def __init__(self, character: str, images: ArrayKxNxM, font : ArrayKx5, word : ArrayN):
         self.character = character
         self.images = images
         self.font = font
@@ -27,38 +27,33 @@ class CharacterDataset(Dataset):
         self.to_tensor = ToTensor()
 
     def __len__(self):
-        return self.images.shape[-1]
+        return self.images.shape[0]
 
     def transform(self, img: ArrayNxM[np.uint8]):
-        # gray_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
         gray_img = cv.normalize(img, None, 0, 255, cv.NORM_MINMAX, cv.CV_8U)
         return gray_img
-        # canny = cv.Canny(gray_img, 50, 100, apertureSize=3)
-        # return img
-        # return cv.resize(img, (50,50))
-        # gray = cv.cvtColor(cv.cvtColor(img, cv.COLOR_BGR2GRAY), cv.COLOR_GRAY2BGR)
-        # canny_gray = cv.cvtColor(cv.Canny(gray, 50, 100, apertureSize=3), cv.COLOR_GRAY2BGR)
-        # canny_rgb  = cv.cvtColor(cv.Canny(img, 50, 100, apertureSize=3), cv.COLOR_GRAY2BGR)
-        # print(f"{img.shape=}, {gray.shape=}, {canny_gray.shape=}, {canny_rgb.shape=}")
-        # out = np.zeros_like(img)
-        # out = img*0.5 + canny
-        # row1 = np.concatenate((gray, img))
-        # row2 = np.concatenate((canny_gray, canny_rgb))
-        # all = np.concatenate((row1, row2), axis=1)
-        # plt.imshow(all)
-        # plt.show()
-        # return img
-    
 
     def __getitem__(self, idx):
-        image = self.images[:, :, idx]
-        label = self.font[idx]
-        target_transform = Lambda(lambda y: torch.zeros(5, dtype=torch.float).scatter_(dim=0, index=torch.tensor(y), value=1))
-        image = (self.transform(image))
-        # image = image.swapaxes(0, 2).swapaxes(0,1)
+        image = self.images[idx]
+        label = self.font[idx].astype(np.float)
+        image = self.transform(image)
         image = self.to_tensor(image)
-        label = target_transform(label)
         return image, label
+
+class AugmentedCharacterDataset(CharacterDataset):
+    def __init__(self, character: str, images: ArrayKx4xNxM, font : ArrayKx5, word : ArrayN):
+        super().__init__(character, images, font, word)
+
+    def __len__(self):
+        return self.images.shape[0] * self.images.shape[1]
+
+    def __getitem__(self, idx):
+        image = self.images[idx//4][idx%4]
+        label = self.font[idx//4].astype(np.float)
+        image = self.transform(image)
+        image = self.to_tensor(image)
+        return image, label
+
 
 
 def create_dataloaders(fname: str) -> Dict[str, TrainTestData]:
@@ -79,7 +74,7 @@ def create_dataloaders(fname: str) -> Dict[str, TrainTestData]:
         font = datafile.font[datafile.char_indices(char)]
         word = datafile.word[datafile.char_indices(char)]
         images = datafile.char_images(char)
-        char_ds = CharacterDataset(char, images, font, word)
+        char_ds = AugmentedCharacterDataset(char, images, font, word)
         all_char_datasets.append(char_ds)
         train_data, test_data = random_split(char_ds, [TRAIN_TEST_SPLIT, 1 - TRAIN_TEST_SPLIT])
         train_dataloader = DataLoader(train_data, batch_size=CHAR_BATCH_SIZE, shuffle=True, pin_memory=True)
@@ -94,7 +89,7 @@ def create_dataloaders(fname: str) -> Dict[str, TrainTestData]:
     return character_dls, global_dl
 
 def main():
-    character_dls, global_dl = create_dataloaders('data/converted.h5')
+    character_dls, global_dl = create_dataloaders('data/augmented2.h5')
     dl = character_dls['e'].train_dataloader
     for im, label in dl:
         plt.imshow(im)

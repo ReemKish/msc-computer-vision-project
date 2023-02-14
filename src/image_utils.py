@@ -60,6 +60,22 @@ def process_bounding_box(img : ArrayNxMx3[np.uint8], polygon : ArrayNx2[np.float
     # plt.show()
     return out2
 
+def augment_image(img: ArrayNxM[np.uint8]):
+    """Augments a gray-scale image.
+
+    Returns a list of n copies of the image: 2 flips + 2 flips of the bitwise inverted image.
+    """
+    images = [None] * 4
+    inv_img = cv.bitwise_not(img)
+    images[0] = img
+    images[1] = inv_img
+    images[2] = cv.rotate(img, cv.ROTATE_180)
+    images[3] = cv.rotate(inv_img, cv.ROTATE_180)
+    # plt.imshow(np.concatenate((*images,)), cmap='gray')
+    # plt.show()
+    return images
+
+
 
 
 def normalize_bb():
