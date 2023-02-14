@@ -6,6 +6,7 @@ import torch
 
 from torch.utils.data import DataLoader
 from types_ import *
+import json
 
 
 class Trainer():
@@ -16,7 +17,7 @@ class Trainer():
     - Single epoch (train_epoch/validate_epoch)
     - Single batch (train_batch/validate_batch)
     """
-    def __init__(self, model, loss_fn, optimizer, device=None):
+    def __init__(self, model, loss_fn, optimizer, device=None, model_fname="model"):
         """
         Initialize the trainer.
         :param model: Instance of the model to train.
@@ -28,6 +29,7 @@ class Trainer():
         self.loss_fn = loss_fn
         self.optimizer = optimizer
         self.device = device
+        self.model_fname = model_fname
 
         if self.device:
             model.to(self.device)
@@ -53,7 +55,7 @@ class Trainer():
         actual_num_epochs = 0
         train_loss, train_acc, valid_loss, valid_acc = [], [], [], []
 
-        best_acc = None
+        best_acc = 0
         epochs_without_improvement = 0
 
         for epoch in range(num_epochs):
@@ -61,15 +63,6 @@ class Trainer():
             if epoch % print_every == 0 or epoch == num_epochs-1:
                 verbose = True
             self._print(f'--- EPOCH {epoch+1}/{num_epochs} ---', verbose)
-
-            # TODO: Train & evaluate for one epoch
-            # - Use the train/validate_epoch methods.
-            # - Save losses and accuracies in the lists above.
-            # - Optional: Implement checkpoints. You can use torch.save() to
-            #   save the model to a file.
-            # - Optional: Implement early stopping. This is a very useful and
-            #   simple regularization technique that is highly recommended.
-            # ====== YOUR CODE: ======
             result_train = self.train_epoch(dl_train, **kw)
             result_valid = self.validate_epoch(dl_valid, **kw)
             train_loss.append((sum(result_train.losses)/(len(result_train.losses))).item())
@@ -77,15 +70,21 @@ class Trainer():
             valid_loss.append((sum(result_valid.losses)/(len(result_valid.losses))).item())
             valid_acc.append(result_valid.accuracy.item())
             
-            if best_acc is not None and best_acc <= valid_loss[-1]:
+            if best_acc >= valid_acc[-1]:
                 epochs_without_improvement+=1
             else:
-                best_acc = valid_loss[-1]
+                best_acc = valid_acc[-1]
                 epochs_without_improvement = 0
+                torch.save(self.model, f"./checkpoints/{self.model_fname}.pth")
+                # save accuracy
+                with open('accuracies.json', 'r') as f:
+                    data = json.load(f)
+                data[self.model_fname] = best_acc
+                with open('accuracies.json', 'w') as f:
+                    json.dump(data, f)
             
             if epochs_without_improvement == early_stopping:
                 break;
-            # ========================
 
         return FitResult(actual_num_epochs,
                          train_loss, train_acc, valid_loss, valid_acc)
@@ -125,18 +124,11 @@ class Trainer():
             X = X.to(self.device)
             y = y.to(self.device)
 
-        # TODO: Train the PyTorch model on one batch of data.
-        # - Forward pass
-        # - Backward pass
-        # - Optimize params
-        # - Calculate number of correct predictions
-        # ====== YOUR CODE: ======
         self.optimizer.zero_grad()
         o = self.model(X)
         loss = self.loss_fn(o, y); loss.backward()
         self.optimizer.step()
         num_correct=torch.sum(o.argmax(1)==y.argmax(1))
-        # ========================
 
         return BatchResult(loss, num_correct)
 
@@ -155,14 +147,9 @@ class Trainer():
             y = y.to(self.device)
 
         with torch.no_grad():
-            # TODO: Evaluate the PyTorch model on one batch of data.
-            # - Forward pass
-            # - Calculate number of correct predictions
-            # ====== YOUR CODE: ======
             o = self.model(X)
             loss = self.loss_fn(o, y)
             num_correct=torch.sum(o.argmax(1)==y.argmax(1))
-            # ========================
 
         return BatchResult(loss, num_correct)
 

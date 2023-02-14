@@ -71,39 +71,20 @@ class DNN(nn.Module):
 class CNN(nn.Module):
     """
     A convolutional classifier model.
-
-    The architecture is:
-    [(Conv -> ReLU)*P -> MaxPool]*(N/P) -> (Linear -> ReLU)*M -> Linear
     """
-    def __init__(self, in_size, out_classes, filters, pool_every, hidden_dims):
+    def __init__(self, in_size, out_classes):
         """
         :param in_size: Size of input images, e.g. (C,H,W).
         :param out_classes: Number of classes to output in the final layer.
-        :param filters: A list of of length N containing the number of
-            filters in each conv layer.
-        :param pool_every: P, the number of conv layers before each max-pool.
-        :param hidden_dims: List of of length M containing hidden dimensions of
-            each Linear layer (not including the output layer).
         """
         super().__init__()
         self.in_size = in_size
         self.out_classes = out_classes
-        self.filters = filters
-        self.pool_every = pool_every
-        self.hidden_dims = hidden_dims
-
         self.feature_extractor = self._make_feature_extractor()
         self.classifier = self._make_classifier()
 
     def _make_feature_extractor(self):
-        in_channels, in_h, in_w, = tuple(self.in_size)
-
-        layers = []
-        # TODO: Create the feature extractor part of the model:
-        # [(Conv -> ReLU)*P -> MaxPool]*(N/P)
-        # Use only dimension-preserving 3x3 convolutions. Apply 2x2 Max
-        # Pooling to reduce dimensions.
-        # ====== YOUR CODE: ======
+        in_channels, _, _, = tuple(self.in_size)
         layers = [
             nn.Conv2d(in_channels, 64, 3),
             nn.BatchNorm2d(64),
@@ -118,19 +99,11 @@ class CNN(nn.Module):
             nn.PReLU(),
             nn.MaxPool2d(2),
         ]
-        # ========================
         seq = nn.Sequential(*layers)
         return seq
 
     def _make_classifier(self):
         in_channels, in_h, in_w, = tuple(self.in_size)
-
-        layers = []
-        # TODO: Create the classifier part of the model:
-        # (Linear -> ReLU)*M -> Linear
-        # You'll need to calculate the number of features first.
-        # The last Linear layer should have an output dimension of out_classes.
-        # ====== YOUR CODE: ======
         def num_flat_features(x):
             size = x.size()[1:]  # all dimensions except the batch dimension
             num_features = 1
@@ -138,18 +111,7 @@ class CNN(nn.Module):
                 num_features *= s
             return num_features
 
-        M = len(self.hidden_dims)
         n_channels = num_flat_features(self.feature_extractor(torch.empty(1, in_channels, in_h, in_w))[1:])
-        # layers += [ nn.Linear(n_channels, self.hidden_dims[0]), nn.ReLU() ]  # first fc
-        # for i in range(1, M):
-        #     layers += [
-        #         nn.Linear(self.hidden_dims[i-1], self.hidden_dims[i]),
-        #         nn.ReLU()
-        #     ]
-        # layers += [ nn.Linear(self.hidden_dims[-1], self.out_classes) ]  # last fc
-        # layers += [ nn.Softmax(dim=1) ]
-        # # ========================
-        # seq = nn.Sequential(*layers)
         seq = nn.Sequential(
             nn.Linear(n_channels, 1024),
             nn.PReLU(),
@@ -177,10 +139,6 @@ class CNN(nn.Module):
         return seq
 
     def forward(self, x):
-        # TODO: Implement the forward pass.
-        # Extract features from the input, run the classifier on them and
-        # return class scores.
-        # ====== YOUR CODE: ======
         def num_flat_features(x):
             size = x.size()[1:]  # all dimensions except the batch dimension
             num_features = 1
@@ -191,11 +149,4 @@ class CNN(nn.Module):
         features = self.feature_extractor(x)
         features = features.view(-1, num_flat_features(features))
         out = self.classifier(features)
-        # ========================
         return out
-
-def main():
-    pass
-
-if __name__ == "__main__":
-    main()
