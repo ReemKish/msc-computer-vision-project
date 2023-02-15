@@ -5,6 +5,8 @@
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 from typing import *
 
+SEED = 4
+
 TRAIN_DATASET_FILE = "data/train.h5"
 
 NET_INPUT_SHAPE = (60, 40)

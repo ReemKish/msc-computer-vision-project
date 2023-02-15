@@ -31,7 +31,8 @@ class HDF5_Data():
         self.fname = fname
         self.db = h5py.File(fname, 'r')
         self.datasets = list(self.db['data'].keys())
-        self.datasets.remove('word'); self.datasets.remove('font')
+        if 'word' in self.datasets: self.datasets.remove('word')
+        if 'font' in self.datasets: self.datasets.remove('font')
 
     def char_images(self, char: str):
         return self.db['data'][char]['images'][:]
@@ -107,18 +108,19 @@ def convert_augment(infile, outfile):
 
 
 
-def convert(infile, outfile):
+def convert(infile, outfile, labels=True):
     """Creates a new HDF5 file from the data in the original file, organized in a different manner."""
+    im_names = []
     db = h5py.File(infile, 'r')
     f  = h5py.File(outfile, 'w')
     data = f.create_group('data')
     words = [word.decode() for im in db['data'] for word in db['data'][im].attrs['txt']]
-    fonts = [onehot_vec(FONTS.index(font)) for im in db['data'] for font in db['data'][im].attrs['font']]
+    if labels: fonts = [onehot_vec(FONTS.index(font)) for im in db['data'] for font in db['data'][im].attrs['font']]
     word_lengths = [len(word) for word in words]
     characters = ''.join(words)
     n_characters = len(characters)
     word = data.create_dataset('word', n_characters, dtype=np.uint64)
-    _    = data.create_dataset('font', (n_characters, 5), dtype=np.uint8, data=fonts)
+    if labels: data.create_dataset('font', (n_characters, 5), dtype=np.uint8, data=fonts)
 
 
     char_images = np.ndarray((n_characters, *NET_INPUT_SHAPE), dtype=np.uint8)
@@ -128,6 +130,7 @@ def convert(infile, outfile):
         img = db['data'][im][:]
         charBB = db['data'][im].attrs['charBB']
         for i in range(charBB.shape[-1]):
+            im_names.append(im)
             char_img = process_bounding_box(img, charBB[:, :, i])
             char_images[global_char_idx] = char_img
             global_char_idx += 1
@@ -149,6 +152,7 @@ def convert(infile, outfile):
         _ = group.create_dataset("images", (n, *NET_INPUT_SHAPE), dtype=np.uint8, data=char_images[indices])
 
     f.close()
+    return im_names
 
 def main():
     convert_augment("data/imported.h5", "data/augmented2.h5")

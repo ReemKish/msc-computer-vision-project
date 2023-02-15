@@ -77,10 +77,10 @@ class Trainer():
                 epochs_without_improvement = 0
                 torch.save(self.model, f"./checkpoints/{self.model_fname}.pth")
                 # save accuracy
-                with open('accuracies.json', 'r') as f:
+                with open('./checkpoints/accuracies.json', 'r') as f:
                     data = json.load(f)
-                data[self.model_fname] = best_acc
-                with open('accuracies.json', 'w') as f:
+                data[self.model_fname] = best_acc / 100
+                with open('./checkpoints/accuracies.json', 'w') as f:
                     json.dump(data, f)
             
             if epochs_without_improvement == early_stopping:

@@ -92,8 +92,7 @@ def plot_fit(fit_res: FitResult, fig=None, log_loss=False, legend=None):
     :return: The figure.
     """
     if fig is None:
-        fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(16, 10),
-                                 sharex='col', sharey=False)
+        fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(16, 5))
         axes = axes.reshape(-1)
     else:
         axes = fig.axes
@@ -105,11 +104,11 @@ def plot_fit(fit_res: FitResult, fig=None, log_loss=False, legend=None):
 
     p = itertools.product(['train', 'test'], ['loss', 'acc'])
     for idx, (traintest, lossacc) in enumerate(p):
-        ax = axes[idx]
+        ax = axes[idx % 2]
         attr = f'{traintest}_{lossacc}'
         data = getattr(fit_res, attr)
-        h = ax.plot(np.arange(1, len(data) + 1), data, label=legend)
-        ax.set_title(attr)
+        h = ax.plot(np.arange(1, len(data) + 1), data, label=(("validation " if idx < 2 else "test ") + lossacc))
+        ax.set_title(lossacc.title().replace('Acc', 'Accuracy'))
         if lossacc == 'loss':
             ax.set_xlabel('Iteration #')
             ax.set_ylabel('Loss')

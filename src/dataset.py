@@ -68,28 +68,30 @@ def create_dataloaders(fname: str) -> Dict[str, TrainTestData]:
     """
     datafile = HDF5_Data(fname)
     character_dls = dict()
-    all_char_datasets = []
+    all_char_train_ds = []
+    all_char_validate_ds = []
     for char in datafile.datasets:
         if datafile.char_dataset_size(char) < MIN_SAMPLES: continue
         font = datafile.font[datafile.char_indices(char)]
         word = datafile.word[datafile.char_indices(char)]
         images = datafile.char_images(char)
         char_ds = AugmentedCharacterDataset(char, images, font, word)
-        all_char_datasets.append(char_ds)
-        train_data, test_data = random_split(char_ds, [TRAIN_TEST_SPLIT, 1 - TRAIN_TEST_SPLIT])
+        train_data, validate_data = random_split(char_ds, [TRAIN_TEST_SPLIT, 1 - TRAIN_TEST_SPLIT], generator=torch.Generator().manual_seed(SEED))
+        all_char_train_ds.append(train_data)
+        all_char_validate_ds.append(validate_data)
         train_dataloader = DataLoader(train_data, batch_size=CHAR_BATCH_SIZE, shuffle=True, pin_memory=True)
-        test_dataloader = DataLoader(test_data, batch_size=CHAR_BATCH_SIZE, shuffle=True, pin_memory=True)
+        test_dataloader = DataLoader(validate_data, batch_size=CHAR_BATCH_SIZE, shuffle=True, pin_memory=True)
         character_dls[chr(int(char))] = TrainTestData(train_dataloader, test_dataloader)
     datafile.close()
-    global_ds = ConcatDataset(all_char_datasets) 
-    global_train_data, global_test_data = random_split(global_ds, [TRAIN_TEST_SPLIT, 1 - TRAIN_TEST_SPLIT])
+    global_train_data = ConcatDataset(all_char_train_ds) 
+    global_validate_data = ConcatDataset(all_char_validate_ds) 
     global_train_dl = DataLoader(global_train_data, batch_size=BATCH_SIZE, shuffle=True, pin_memory=True)
-    global_test_dl = DataLoader(global_test_data, batch_size=BATCH_SIZE, shuffle=True, pin_memory=True)
-    global_dl = TrainTestData(global_train_dl, global_test_dl)
+    global_validate_dl = DataLoader(global_validate_data, batch_size=BATCH_SIZE, shuffle=True, pin_memory=True)
+    global_dl = TrainTestData(global_train_dl, global_validate_dl)
     return character_dls, global_dl
 
 def main():
-    character_dls, global_dl = create_dataloaders('data/augmented2.h5')
+    character_dls, global_dl = create_dataloaders('data/augmented.h5')
     dl = character_dls['e'].train_dataloader
     for im, label in dl:
         plt.imshow(im)
