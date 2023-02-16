@@ -15,7 +15,7 @@ from const import *
 from image_utils import *
 from hdf5_utils import *
 # -- external --
-import pickle
+import time
 import csv
 import torch
 from torchvision.transforms import ToTensor
@@ -133,11 +133,12 @@ def main():
         print("Error: missing argument <h5file>")
     else:
         hd5file = sys.argv[1]
+        print("================\n Processing Data \n================")
+        time.sleep(1)  #
         im_names = convert(hd5file, "ProcessedTestData.h5", labels=False)
-        with open('im_names_test.pkl', 'wb') as f: pickle.dump(im_names, f)
-        with open('im_names_test.pkl', 'rb') as f: im_names = pickle.load(f)
         data = HDF5_Data("ProcessedTestData.h5")
         load_models()
+        print("=================\n Running Classifer \n=================")
         predictions = calculate_char_predictions()
         words = convert_results_format(predictions)
         fonts = classify(words)

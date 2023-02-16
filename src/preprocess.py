@@ -8,7 +8,7 @@
 # ┃     by character rather than by image.                           ┃
 # ┃   * Cutting patches of characters from an image according to     ┃
 # ┃     their bounding boxes, then rotating them to be axis-aligned. ┃
-# ┃   TODO : applying Canny each detector.                           ┃
+# ┃                                                                  ┃
 # ┃                                                                  ┃
 # ┃                                                                  ┃
 # ┃                                                                  ┃

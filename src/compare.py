@@ -1,7 +1,7 @@
 import csv
 
 CSV1 = "results.csv"
-CSV2 = "test_y.csv"
+CSV2 = "train_lables.csv"
 
 f1 = open(CSV1, newline=''); f2 = open(CSV2, newline='')
 reader1 = csv.reader(f1); reader2 = csv.reader(f2)

@@ -18,6 +18,7 @@ from torch.utils.data import DataLoader, Dataset, ConcatDataset, random_split
 from torchvision.transforms import ToTensor, Lambda
 import cv2 as cv
 
+
 class CharacterDataset(Dataset):
     def __init__(self, character: str, images: ArrayKxNxM, font : ArrayKx5, word : ArrayN):
         self.character = character
@@ -89,14 +90,3 @@ def create_dataloaders(fname: str) -> Dict[str, TrainTestData]:
     global_validate_dl = DataLoader(global_validate_data, batch_size=BATCH_SIZE, shuffle=True, pin_memory=True)
     global_dl = TrainTestData(global_train_dl, global_validate_dl)
     return character_dls, global_dl
-
-def main():
-    character_dls, global_dl = create_dataloaders('data/augmented.h5')
-    dl = character_dls['e'].train_dataloader
-    for im, label in dl:
-        plt.imshow(im)
-        print(label)
-        plt.show()
-
-if __name__ == "__main__":
-    main()

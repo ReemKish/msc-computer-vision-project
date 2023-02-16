@@ -74,11 +74,3 @@ def augment_image(img: ArrayNxM[np.uint8]):
     # plt.imshow(np.concatenate((*images,)), cmap='gray')
     # plt.show()
     return images
-
-
-
-
-def normalize_bb():
-    pass
-
-
