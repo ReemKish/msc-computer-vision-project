@@ -1,0 +1,4726 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\begin_modules
+theorems-ams
+\end_modules
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "David"
+\font_sans "default" "David"
+\font_typewriter "default" "Courier New"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.2cm
+\topmargin 2cm
+\rightmargin 2.2cm
+\bottommargin 2cm
+\headheight 2cm
+\headsep 2cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\series bold
+\numeric on
+22928
+\family roman
+\shape up
+\size largest
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מבוא לראייה ממוחשבת | דו
+\begin_inset Quotes erd
+\end_inset
+
+ח פרויקט סופי
+\end_layout
+
+\begin_layout Author
+
+\color black
+ראם קישנבסקי - 
+\numeric on
+\color gray
+213057094
+\end_layout
+
+\begin_layout Date
+
+\numeric on
+14
+\family roman
+\series medium
+\shape up
+\size large
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+פברואר
+\family roman
+\series medium
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2023
+\end_layout
+
+\begin_layout Abstract
+כפרויקט סופי בקורס ניתנה לנו המשימה להבחין בין
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ גופנים שונים של תווים בתוך תמונות טבעיות הכוללות מלל )ראה איור 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+(.
+\end_layout
+
+\begin_layout Abstract
+
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+במסמך זה אפרט על תהליך העבודה שלי, הרעיונות שאימצתי וגם אלו שזנחתי, המסקנות
+ שהגעתי אליהן ומבנה הפרויקט הסופי שלי וביצועיו.
+\end_layout
+
+\begin_layout Abstract
+המסמך מחולק לחמישה חלקים:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\series bold
+\begin_inset space \hspace*{\fill}
+\end_inset
+
+הבחנות ראשוניות ועיבוד מקדים 
+\begin_inset space \hspace*{\fill}
+\end_inset
+
+מימוש מסווג באמצעות רשת נוירונים
+\begin_inset space \hspace*{\fill}
+\end_inset
+
+שיפור ביצועים
+\begin_inset space \hspace*{\fill}
+\end_inset
+
+מבנה הפרויקט
+\begin_inset space \hspace*{\fill}
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Abstract
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/ant_hill.jpg
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+דוגמה לתמונה בה עלינו לזהות את הגופן של כל תו.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+הבחנות ראשוניות ועיבוד מקדים
+\end_layout
+
+\begin_layout Section*
+הסתכלות ראשונית על תמונות המאגר
+\end_layout
+
+\begin_layout Standard
+מהסתכלות ראשונית על התמונות שניתנו לנו כבר הבנתי כמה דברים שיוכיחו עצמם
+ כהכרחיים בהמשך:
+\end_layout
+
+\begin_layout Enumerate
+כל האותיות באותה מילה הן בעלי אותו גופן - משמעות הדבר היא שאפשר להיעזר במידע
+ על תווים אחרים במילה כדי להכריע לגבי גופן של תו מסוים.
+\end_layout
+
+\begin_layout Enumerate
+בעת הכרעת הגופן, אין חשיבות לתמונה המלאה ממנה מגיע התו.
+ כלומר, אין סיבה לשמור עבור כל תו מידע לגבי התמונה בה הוא מופיע - כל המידע
+ שנחוץ לנו זוהי הסביבה המקומית הכוללת את התו עצמו ואת שארית המילה אליה הוא
+ שייך.
+\end_layout
+
+\begin_layout Enumerate
+המלל בתמונה עובר תהליך כלשהו של עיוות, מהדוגמאות שראיתי הבחנתי כי האותיות
+ באות בגדלים ובצבעים שונים ובנוסף לפעמים עוברות תהליך של סיבוב, עיוות )
+\lang english
+warping
+\lang hebrew
+( ולעיתים אפילו היפוך )
+\lang english
+mirroring
+\lang hebrew
+(.
+\begin_inset Newline newline
+\end_inset
+
+המשמעות של אלו היא שהפתרון שלי צריך להיות חסין לטרנפורמציות מהסוג הזה, וכבר
+ עלו לי רעיונות להתמודדות עם בעיה זו אליה נחזור בהמשך.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+המרת המאגר ועיבוד ראשוני
+\end_layout
+
+\begin_layout Standard
+כעת, כבר תוך יישום של ההבחנה השניה - ניגשתי לכתוב את פיסת הקוד הראשונה בפרויקט.
+ הקוד שכתבתי היה אחראי על קריאת הקובץ שניתן בפורמט
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+HDF5
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+וכתיבתו לתוך קובץ חדש - גם הוא בפורמט
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+HDF5
+\lang hebrew
+.
+ התכלית של המרה זו היא להגיע לפורמט מידע אשר הינו יותר תמציתי ויותר מותאם
+ לאופן בו נרצה לעבוד איתו בהמשך.
+\end_layout
+
+\begin_layout Standard
+ספציפית, הפורמט החדש כלל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Dataset
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ עבור כל תו - בו נשמרו אך ורק החלקים הקטנים בכל תמונה הכללו מופעים שלו.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ לשמחתינו - המידע לגבי אותם 
+\lang english
+Bounding Boxes
+\lang hebrew
+ נתון לנו בעבור כל תמונה )ראה איור
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\numeric off
+( וכל שעלינו לעשות הוא לחלץ אותם מתוך התמונה - משימה שהתבררה כלא טריוויאלית
+ כלל, ראה 
+\begin_inset Quotes eld
+\end_inset
+
+חילוץ
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Bounding Boxes
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מתוך התמונה
+\begin_inset Quotes erd
+\end_inset
+
+.
+ בנוסף שמרנו בכל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Dataset
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+גם רשימה של גופנים אשר התאימה בין כל תמונה של תו מסוים לגופן שלו.
+\end_layout
+
+\begin_layout Standard
+פורמט זה אינו הפורמט הסופי בו השתמשנו לשמירת המידע, אלא שלקחתי בחשבון את
+ החסרונות הבאים ותיקנתי בהתאם:
+\end_layout
+
+\begin_layout Enumerate
+רשימת הפונטים נשמרה בתור מאפיין
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)
+\lang english
+(attribute
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של ה-
+\lang english
+Dataset
+\lang hebrew
+, מאוחר יותר למדתי שמאפניים
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+נועדו לשמור
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+metadata
+\lang hebrew
+, והינם מוגבלים בגודלם - לכן השיטה לא הייתה מותאמת למצב בו המאגר גדול מאוד,
+ בעיה זו נפגוש בהמשך כאשר נרחיב את המאגר באמצעות אוגמנטציה.
+\end_layout
+
+\begin_layout Enumerate
+לא נשמר בשום מקום מידע לגבי השייכות של תו למילה מסוימת - ובכך אבד לנו המידע
+ החשוב לגבי אילו תווים שייכים לאותה מילה ולכן בעלי אותו גופן.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/bounding_boxes2.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ה-
+\lang english
+Bounding Boxes
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של תווים שונים בתמונה.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+חילוץ
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Bounding Boxes
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מתוך התמונה
+\end_layout
+
+\begin_layout Standard
+לכאורה המשימה פשוטה, הרי נתונות לנו ארבעת הקואורדינטות המגדירות את המלבן
+ בו נמצא כל תו בתמונה.
+ הקושי נובע בכך שהמלבנים אינם מקבילים לצירי התמונה, ולמעשה כל מלבן הוא בעל
+ אוריאנטציה מסוימת לכן לא נוכל פשוט 
+\begin_inset Quotes eld
+\end_inset
+
+לגזור
+\begin_inset Quotes erd
+\end_inset
+
+ אותו מהתמונה ולקבל תמונה חדשה.
+ בחרתי לבצע הומוגרפיה, כלומר להשתמש בזוית המחושבת של סיבוב המלבן על מנת
+ לסובב אותו חזרה כך שיהיה מקביל לצירים - ולשמור תמונה זו.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\color darkgray
+פתרון שנזנח:
+\series default
+ בהתחלה לקחתי את ערכי המקסימום והמינימום של כל ארבעת נק' המלבן והשתמשתי
+ בהם כדי לקבל מלבן מינימלי שמכיל את המלבן המסובב ומקביל לצירים - אך בשיטה
+ זו נוסף מידע עודף לתמונה והאותיות עצמן לא היו באוריאנטציה אחידה.
+\end_layout
+
+\begin_layout Section*
+עיבוד מקדים
+\end_layout
+
+\begin_layout Standard
+כעת, לאחר חילוץ ה-
+\lang english
+Bounding Boxes
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ של כל התווים מכל התמונות ושמירתם במאגר לפי סוג התו, הגיע שלב העיבוד המקדים
+ )
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Preprocessing
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+(.
+\end_layout
+
+\begin_layout Standard
+בשלב זה ניסיתי לחשוב אילו פעולות עיבוד אוכל לבצע על כל תמונה על מנת 
+\begin_inset Quotes eld
+\end_inset
+
+להכין
+\begin_inset Quotes erd
+\end_inset
+
+ את המידע שהיא שומרת לקבלה לרשת המסווגת שלי )בשלב זה כבר ידעתי שארצה לפתור
+ את המשימה באמצעות רשת נוירונים(.
+\begin_inset Newline newline
+\end_inset
+
+לשם כך בניתי רשת פשוטה ובחנתי את ביצועיה כאשר התמונות שהיא מקבלת עברו עיבוד
+ מסוגים שונים.
+ בשלב מאוחר יותר בפרויקט, כאשר מבנה הרשת פחות או יותר התקבע, חזרתי לבעיית
+ העיבוד המקדים ובחנתי שנית את האופן בו אני מעבד את התמונות לפני הכנסתם לרשת.
+ על בניית הרשת המסווגת ארחיב בחלק השלישי: 
+\series bold
+מימוש מסווג באמצעות רשת נוירונים
+\series default
+.
+\end_layout
+
+\begin_layout Subsection*
+המרת התמונה לגווני אפור
+\end_layout
+
+\begin_layout Standard
+המרת התמונה לגווני אפור הייתה נראית לי צעד הגיוני, שכן הגופן אינו תלוי בצבע
+ הטקסט, ובעצם כל שאנו רוצים לדעת זה את צורת האות, התפקיד שהצבע משרת בהקשר
+ זה הוא הפרדת האות מהרקע, ובכך הדגשת הצורה שלו.
+ ואילו צורת האות נשמרת גם בתמונת גווני אפור, בה אמנם התמונה נראית דלה יותר
+ אך ההבדל בגוון בין צבע הטקסט לצבע הרקע נותר על קינו.
+ בנוסף, ההמרה לגווני אפור מהווה ירידה במימד התמונה ומאפשרת אימון מהיר יותר
+ של הרשת.
+\end_layout
+
+\begin_layout Standard
+במבחן התוצאה, לא ראיתי הבדל ניכר בין ביצועי הרשת כאשר מוזנות אליה תמונות
+ צבע וכאשר מדובר בתמונות גווני אפור, לכן בחרתי לבצע המרה זו.
+\end_layout
+
+\begin_layout Subsection*
+מציאת קצוות באמצעות אלגוריתם
+\family roman
+\series bold
+\shape up
+\size large
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Canny
+\end_layout
+
+\begin_layout Standard
+כאמור, מרבית מתכלית העיבוד המקדים מתנקז ליצירת הפרדה בין החזית )במקרה שלנו
+ - האות( לבין הרקע.
+ אלגוריתם מתבקש במקרה זה הוא
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Canny
+\lang hebrew
+, מאחר והמתווה של האות מהווה 
+\begin_inset Quotes eld
+\end_inset
+
+קצה
+\begin_inset Quotes erd
+\end_inset
+
+ בתמונה, ניתן לזהות ולהדגיש אותו באמצעות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Canny
+\lang hebrew
+.
+ בחנתי מספר אפשרויות לשימוש ב-
+\lang english
+Canny
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+לשם טיוב התמונה, אך לבסוף נטשתי את כולם מפעת כך שלא הובילו לשיפור בתוצאות.
+\end_layout
+
+\begin_layout Standard
+במקרה הבסיסי ביותר, כל שעשיתי הוא להפעיל את האלגוריתם עם ערכי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+threshold
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ מסוימים שמצאתי באמצעות ניסוי ותהייה.
+ שמתי לב לתופעה מעניינת: עם שיטה זו, הרשת דאז הגיעה לדיוק של 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+44%
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ כבר ב-
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Epoch
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+השני של האימון, בעוד בלעדיו לקח לה לפחות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+שישה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Epochs
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+להגיע לדיוק כזה - אך אחרי מספיק
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+זמן אימון, הרשת שאינה מקבלת מידע שעבר
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Canny
+\lang hebrew
+, הגיעה לתוצאות דיוק יותר טוב.
+ ההסבר שאני מציע לתופעה זו הוא כזה - הרצת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Canny
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בעצם ממירה את התמונה לתמונת שחור-לבן, בה לכל פיקסל שני ערכים אפשריים, והיא
+ עושה זאת תוך כדי שימור המידע אשר הכי נחוץ לנו - המבנה של האות, לכן, כאשר
+ המידע נכנס בצורה הזאת לרשת - הפונקציה המקשרת בין התמונה לוקטור המייצג את
+ הגופן המתאים הייתה פשוטה משמעותית מהפונקציה המקבילה במקרה בו התמונות לא
+ עברו
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Canny
+\lang hebrew
+, ומכאן מדוע הצליחה הרשת להגיע לדיוק ניכר כבר בשלבי האימון המוקדמים.
+ ואילו הסיבה שהרשת לא מגיעה לאחוזי דיוק גבוהים כמו במקרה של תמונת גווני
+ האפור היא שפשוט מקודד פחות מידע בתמונת השחור הלבן ולמעשה מאפיינים 
+\begin_inset Quotes eld
+\end_inset
+
+רכים
+\begin_inset Quotes erd
+\end_inset
+
+ יותר של התמונה נעלמו לגמרי, לכן הדיוק המקסימלי של הרשת הוגבל.
+\end_layout
+
+\begin_layout Subsection*
+נורמליזציה
+\end_layout
+
+\begin_layout Standard
+ביצעתי נרמול של ערכי הפיקסלים בכל תמונת גווני אפור, על מנת למרכז את כל המאגר
+ סביב אותה ראשית ובכך להגביר את ביצועי הרשת.
+ שיטה פשוטה זו, אשר מימשתי בשורת קוד אחת, אחראית לקפיצה ניכרת בדיוק הסיווג
+ של הרשת.
+\end_layout
+
+\begin_layout Subsection*
+אוגמנטציה
+\end_layout
+
+\begin_layout Standard
+אחד המרכיבים החשובים ביותר בשלב העיבוד המקדים זהו האוגמנטציה: על מנת להגיע
+ לביצועים טובים של רשתות נוירונים, ישנו צורך בכמות מידע גדולה.
+ בנוסף, בשביל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+חוסן )
+\lang english
+robustness
+\lang hebrew
+( של המודל, דרוש שהוא יתאמן על דוגמאות מגוונות.
+ הנקודה האחרונה התבררה כקריטית במקרה שלנו, ניתן לראות שלאחר מעבר לגווני
+ אפור, בחלק מהתמונות, התו מופיע בגוון כהה על רקע בהיר ובחלק אחר הוא מופיע
+ בגוון בהיר על רקע כהה.
+ בנוסף, פעמים רבות התו הפוך.
+ ישנן שתי דרכים אפשריות להתמודד עם תופעה זו:
+\end_layout
+
+\begin_layout Enumerate
+מציאת דרך כלשהי תוך שימוש בכלים של עיבוד תמונה על מנת להביא את כל התמונות
+ לפורמט אחיד, לדוג' - כל התווים יהיו שחורים על רקע לבן ולא הפוכים.
+ ניסיתי בדרך זו, בהצלחה מספקת, לגרום לכך שלא יהיו הרבה תמונות של תווים בהם
+ התו נראה על הצד, באמצעות כך שהפכתי כל מלבן כך שהצלע הקצרה שלו תהא אופקית
+ - זאת מכיוון שאותיות על פי רוב הן יותר גבוהות מרחבות.
+ באשר לבעיית הגוונים וההיפוך לא מצאתי פתרון בשיטה זו.
+\end_layout
+
+\begin_layout Enumerate
+אוגמנטציה - זו השיטה בה השתמשתי לבסוף והיא הובילה לשיפור ניכר בביצועים.
+ בשיטה זו, מזינים לרשת עוד עותקים של אותה תמונה )וכמובן עם אותו תיוג(, עם
+ עיוותים מסוימים.
+ במקרה שלנו, עבור כל תמונה של תו אני מזין לרשת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+תמונות: את התמונה המקורית, תמונה הפוכה 
+\begin_inset Formula $180^{\circ}$
+\end_inset
+
+, תמונת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+negative
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ותמונת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+negative
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של התמונה ההפוכה.
+ תמונות ה-
+\lang english
+negative
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מאפשרות לרשת לזהות את גופן התו הן כאשר הוא בהיר ביחס לרקע והן כאשר כהה.
+ התמונות ההפוכות מאפשרות לרשת לזהות תוים גם כשהם הפוכים.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Shadowbox
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/letter_T.png
+	lyxscale 30
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size small
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+מופעים של האות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+T
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ בתמונות
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+מימוש מסווג באמצעות רשת נוירונים
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\lang english
+DNN - Deep Neural Network
+\end_layout
+
+\begin_layout Standard
+זו הרשת הראשונה שבחנתי, מדובר ברשת פשוטה בה כל השכבות הן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Fully-Connected
+\lang hebrew
+, ובעצם הפרמטרים המשמעותיים ביותר במבנה שלה הם מספר השכבות וגודל כל שכבה.
+ מניסוי ותהייה הגעתי יחסית מהר לרשת שהניבה תוצאות ראשוניות שהיו יותר טובות
+ מ-
+\numeric on
+20%
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+דיוק, כלומר יותר טובות מניחוש.
+ מבנה הרשת היה: 
+\begin_inset Formula 
+\[
+\mathtt{Linear\to ReLU\to Dropout\to...\to LogSoftmax}
+\]
+
+\end_inset
+
+ בעצם שלושת אבני הבניין המרכזיים היו שכבות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Linear, Relu, Dropout
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ והמבנה שלהם והפרמטרים הפנימיים שלהם הובילו אותי לתוצאות טובות יחסית לרשת
+ פשוטה כמו זו.
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\lang english
+CNN - Convolutional Neural Network
+\end_layout
+
+\begin_layout Standard
+המוטיבציה למעבר לרשת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+CNN
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+היה שהרי אנחנו עוסקים בתמונות של אותיות, ורשתות קונבולוציה הן השולטות בתחום
+ הזה, מכיוון שהן מותאמות ללמידה ממידע שמאורגן באופן מרחבי )כמו תמונה( ומחלצות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Features
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אשר מעידים על תכונות מסוימות של התמונה.
+ ההתאמה למקרה שלנו מיידית - נרצה ללמוד אילו פיצ'רים מאפיינים כל
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+גופן, ולהתשמש בהם לסיווג.
+\end_layout
+
+\begin_layout Standard
+תחילה התוצאות שקיבלתי לא היו מזהירות, ושינויים רבים שעשיתי ברשת לא הובילו
+ לשיפור ניכר, מסיבה זו חזרתי להשתמש ב-
+\lang english
+DNN
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+למשך תקופה אך לבסוף חזרי לרשתות קונבולוציה כאשר פריצת הדרך הייתה שינוי ארכיטקטור
+ת השכבות האחרונות ברשת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ - אלה אשר אחראיות על קבלת וקטור הפיצ'רים כקלט וסיווג לגופנים.
+ מה שעשיתי היה בעצם להדביק את רשת ה-
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+DNN
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ בתוך המודל הנוכחי ושימוש בו בתור ב-
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Classifier
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של הרשת )ראה איור
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\numeric off
+(
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ - שיטה זו של שילוב בין העוצמות של שני סוגי הרשתות הוא שהוביל לתוצאות המיטביות
+ ובו השתמשתי גם בגרסה הסופית של הפיתרון.
+ 
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 1
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename report-document/images/cnn.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+מבנה רשת מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+CNN
+\lang hebrew
+, במקרה שלי ה-
+\lang english
+Classifier
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הוא בדיוק רשת ה-
+\lang english
+DNN
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בה השתמשתי קודם למעבר.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\lang english
+FCN - Fully Convolutional Neural Network
+\end_layout
+
+\begin_layout Standard
+רשת
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+FCN
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ דומה לרשת מסוג 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+CNN
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אך היא אינה כוללת חלק האחראי על
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Classification
+\lang hebrew
+, למעשה ברשת כולה אין שכבה לינארית, במקום זאת, השכבות האחרונות הן קונבולוציות
+ בגודל 
+\begin_inset Formula $1\times1$
+\end_inset
+
+ המסמלצות שכבות
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+FC
+\lang hebrew
+.
+ הדבר מאפשר תכונה רצויה של הרשת שהיא אגנוסטיות לגודל הקלט - כלומר, רשתות
+ מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+FCN
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+יכולות לקבל כקלט תמונות מגדלים שונים.
+ הדבר נראה רצוי בעיניי שכן חשבתי לנצל את העובדה שמילים שלמות הן בעלי אותו
+ גופן בכך שאזין לרשת תמונות של מילים שלמות במקום תמונות של תווים בודדים
+ - האינטואיציה מאחורי רעיון זה היא שכל גופן הוא בעל 
+\begin_inset Quotes eld
+\end_inset
+
+סגנון
+\begin_inset Quotes erd
+\end_inset
+
+ מסוים משלו, והסגנון הזה נשמר במידה רבה גם בין אותיות שונות, דוגמה 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+לכך היא בגופן 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Alex Brush
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)ראה איור
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5
+\numeric off
+( - ניתן להבחין כי אותיות שונות משמרות את הסגנון של הגופן, אשר מאופיין בין
+ היתר ע
+\begin_inset Quotes erd
+\end_inset
+
+י ספירלות בקצוות האותיות - פיצ'ר שקל לרשת קונבולוציה לזהות.
+ אם כן, הרציונל להזין לרשת תמונה של מילים שלמות היה שבאופן זה ישנה חזרה
+ גדולה יותר על סגנון הגופן, כלומר יותר מידע למסווג ומכאן דיוק גבוה יותר.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 0
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename report-document/images/alex-brush.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+הגופן
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+Alex Brush
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הכיוון הזה ננטש עוד בטרם התחלתי לממש את הרשת, זאת בעצת חבר לקורס אשר הצביע
+ על כך שרשתות מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+FCN
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+אינן מתאימות לבעיות סיווג, וישנן דרכים אחרות לייצר מודלים שאגנוסטיים לגודל
+ הקלט - אך הם מסובכים מאוד.
+ לכן, החלטתי להישאר עם רשת מסוג
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+CNN
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ולנצל בצורה אחרת את העובדה שלמילים יש גופן אחיד, על כך ארחיב בחלק השלישי:
+ 
+\series bold
+שיפור ביצועים
+\series default
+.
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+שיפור ביצועים 
+\end_layout
+
+\begin_layout Standard
+בשלב האחרון של הפיתוח, לאחר שהיה בידי מודל 
+\begin_inset Quotes eld
+\end_inset
+
+גלובלי
+\begin_inset Quotes erd
+\end_inset
+
+ אשר מסוגל לסווג כל אות לגופן כלשהו בדיוק מרשים )שעומד על
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+76%
+\numeric off
+(.
+ התחלתי לכתוב את הקוד אשר אחראי על ביצוע הסיווג בפועל, כלומר לא למטרת אימון.
+ לשם כך השתמשתי בשתי שיטות:
+\end_layout
+
+\begin_layout Subsection*
+אימון מסווגים ייחודיים לתווים
+\end_layout
+
+\begin_layout Standard
+הגיוני לחשוב שאם אנו מתבוננים על אות מסוימת שאינה ברורה, יהיה לנו קל יותר
+ להכריע מה הגופן שלה אם יגידו לנו מה האות הזאת.
+ לכן, בחנתי את האפשרות של אימון מסווגים נוספים - מסווג לכל אות.
+\end_layout
+
+\begin_layout Standard
+בשיטה זו ישנה בעיה מרכזית והיא חוסר במידע, שכן מסווג לאות 
+\begin_inset Formula $x$
+\end_inset
+
+ יוכל להתאמן רק על תמונות של האות 
+\begin_inset Formula $x$
+\end_inset
+
+ - זה הרבה פחות מידע ממה שניתן לנו תחילה.
+ בנוסף, לאותיות נפוצות פחות יש אפילו פחות מידע.
+\begin_inset Newline newline
+\end_inset
+
+הפתרון שלי לבעיה מורכב משלושה חלקים.
+\end_layout
+
+\begin_layout Enumerate
+אוגמנטציה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ - כבר בשלב העיבוד המקדים הכפלתי כך את כמות המידע פי 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\numeric off
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\lang english
+fine-tuning
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על המודל הגלובלי להתאמתו לאות מסוימת.
+\end_layout
+
+\begin_layout Enumerate
+עבור תווים עם פחות מ-
+\numeric on
+50
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ תמונות לא אימנתי מסווג כלל, השתמשתי במסווג הגלובלי.
+\end_layout
+
+\begin_layout Standard
+לאחר כל אלו, היו בידי מסווגים להרבה תווים, מתוכם השארתי רק את המסווגים אשר
+ השיגו אחוז דיוק גבוה יותר מהמסווג הגלובלי.
+ כעת, כאשר נידרש לסווג אות מסוימת - נבדוק האם קיים לה מסווג ספציפי, אם קיים
+ - נשתמש בו, אחרת - נשתמש בגלובלי.
+\end_layout
+
+\begin_layout Subsection*
+שימוש במידע מקדים
+\end_layout
+
+\begin_layout Standard
+מאחר והסיווג אינו למטרת אימון, הייתי חופשי להשתמש בכל המידע המקדים שברשותי
+ לשיפור דיוק הסיווג )אינטואיטיבית, אם הייתי מבצע שימוש במידע מקדים בשלב
+ אימון המודל, הדבר היה רק פוגע ביכולת שלו לסווג אותיות - בחרתי 
+\begin_inset Quotes eld
+\end_inset
+
+להסתיר
+\begin_inset Quotes erd
+\end_inset
+
+ מהמודל כל מידע קודם שהיה לי על מנת שיוכל לתת סיווג באופן לא מוטה(.
+ המידע המקדים שברשותי הוא כמובן העובדה שלאותיות אשר מרכיבות את אותה מילה
+ יש אותו גופן.
+ אזי, עלינו לסווג לכל תווי מילה כלשהי את אותו גופן, לכן נרצה לבחור גופן
+ שמהווה קונסנזוס.
+\end_layout
+
+\begin_layout Standard
+האופן בו בחרתי לבצע זאת הוא כזה: נתון לנו עבור כל תו במילה את וקטור ההסתברות
+ של הגופנים, שהוא הפלט של המסווג )בין אם המסווג הגלובלי או מסווג ספציפי(
+ - הגיוני אם כן לקחת ממוצע של כל וקטורי ההסתברות הללו, ואז לבחור את הגופן
+ עם הסבירות הגבוהה ביותר.
+ שיפור של שיטה זו הוא לקחת ממוצע משוקלל, כאשר נרצה 
+\begin_inset Quotes eld
+\end_inset
+
+להתחשב יותר
+\begin_inset Quotes erd
+\end_inset
+
+ בפלט של מסווג מסוים אם ידוע לנו שהוא מדויק יותר.
+ אכן - זו השיטה בה השתמשתי לבסוף, למסווג הגלובלי ולכל מסווג אחר של תו מסוים,
+ שמרתי את הדיוק האמפירי שלו אשר מדדתי בתהליך האימון, כעת, כאשר רציתי לקחת
+ בחשבון את הפלט שלו - הכפלתי אותו בדיוק המסווג.
+ בשיטה זו, מסווגים מדויקים קיבלו יותר 
+\begin_inset Quotes eld
+\end_inset
+
+
+\lang english
+say
+\lang hebrew
+
+\begin_inset Quotes erd
+\end_inset
+
+ בהכרעה על גופן המילה ובהתאם ראיתי שיפור בדיוק.
+\end_layout
+
+\begin_layout Section*
+תוצאות
+\end_layout
+
+\begin_layout Standard
+השיטות הנ
+\begin_inset Quotes erd
+\end_inset
+
+ל איפשרו למודל להגיע לאחוז דיוק מרשים מאוד של
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+99.2%
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+על מאגר ה-
+\lang english
+test
+\lang hebrew
+.
+ השיפור הוא ניכר בהשוואה ל-
+\lang english
+76%
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ דיוק של המודל הגלובלי על ה-
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+validation set
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בזמן האימון - כאשר לא השתמשנו במידע המקדים ובמסווגים המותאמים.
+ את תהליך האימון של המודל הגלובלי )שהוא העיקרי( ניתן לראות באיור
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+76
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 1
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename report-document/images/fitness.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+דיוק ו-
+\lang english
+loss
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בזמן אימון המודל הגלובלי
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+מבנה הפרויקט
+\end_layout
+
+\begin_layout Standard
+הפרויקט הסופי מחולק ל-
+\numeric on
+11
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+קבצי קוד ו-
+\numeric on
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+תיקיות, ראה איור
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+7
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename report-document/images/files.png
+	scale 50
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+היררכיית קבצי המקור של הפרויקט
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+best_models
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בתיקייה זו מאוחסנים קבצי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+.pth
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הניתנים לקריאה ע
+\begin_inset Quotes erd
+\end_inset
+
+י 
+\begin_inset Formula $\mathtt{torch.load()}$
+\end_inset
+
+ - אלו הם הגרסאות - לאחר אימון - של המודלים בפרויקט: המודל הגלובלי והמודלים
+ של כלל התווים.
+ גם מאוחסן בה קובץ 
+\begin_inset Formula $\mathtt{accuracies.json}$
+\end_inset
+
+ אשר מכיל את הדיוקים של כל מודל, כפי שנמדד בזמן האימון.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+checkpoints
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בתיקייה זו נשמרים הסנאפשוטים של הגרסא הכי טובה של כל מודל בזמן האימון.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+const.py
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+קבועים למיניהם.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+data
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בתיקייה זו מאוחסן כל המידע על הוריאציות השונות שלו - עליו המודל מתאמן.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+dataset.py
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+קוד האחראי על המרת המידע בפורמט
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+HDF5
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+למחלקות 
+\begin_inset Formula $\mathtt{CharacterDataset}$
+\end_inset
+
+ אשר ממשות את הממשק 
+\begin_inset Formula $\mathtt{Dataset}$
+\end_inset
+
+ של 
+\begin_inset Formula $\mathtt{pytorch}$
+\end_inset
+
+ ומחזיקות את המידע שניתן לרשתות בזמן אימון.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+hdf5_utils.py
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+קוד שמספק אבסטרקציה לעבודה מול קבצי
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+HDF5
+\lang hebrew
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+image_utils
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+פעולות על תמונה, לרבות הומוגרפיה.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+models.py
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+המודלים של רשתות הנוירונים למינהם.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+plot.py
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+קוד ליצירת גרפים.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+predict.py
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+הסקריפט המרכזי של הפרויקט, מקבל קובץ
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+HDF5
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+וכותב לתוך
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang english
+results.csv
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+את תוצאות הסיווג.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+preprocess.py
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+בגרסה הקודמת של הפורמט, קוד זה ביצע את ההמרה.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+training.py
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+מחלקת 
+\begin_inset Formula $\mathtt{Trainer}$
+\end_inset
+
+ אשר מספקת פעולות לאימון רשת.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+train.py
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+קוד אשר מבצע שימוש במחלקה 
+\begin_inset Formula $\mathtt{Trainer}$
+\end_inset
+
+ שהוגדרה ב-
+\begin_inset Formula $\mathtt{training.py}$
+\end_inset
+
+ ומבצע בפועל את אימון כל המסווגים, תוך שמירת גרסאות שלהם בתיקייה 
+\begin_inset Formula $\mathtt{checkpoints}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+\begin_inset space \hspace*{}
+\length 0cm
+\end_inset
+
+
+\family typewriter
+\lang english
+types_.py
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang hebrew
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+סוגי מבני נתונים למיניהם.
+
+\family typewriter
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\end_layout
+
+\end_body
+\end_document

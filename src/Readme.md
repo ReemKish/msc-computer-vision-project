@@ -4,7 +4,7 @@ Re'em Kishinevsky 213057094
 Download all the code and puts all .py source files in the same directory.
 Download the models zipfile from Dropbox (https://www.dropbox.com/s/14k7gi6nu68dwnz/best_models.zip?dl=0)
 and unzip it in this directory.
-Make sure all the model .pth files are directly in the folder named `best_models`.
+Make sure accuracies.json and all the model .pth files are directly in the folder named `best_models`.
 The directory tree should now look like this:
 
 .
