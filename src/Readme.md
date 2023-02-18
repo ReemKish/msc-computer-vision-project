@@ -29,14 +29,20 @@ The directory tree should now look like this:
 ├── train.py
 └── types_.py
 
+(Make sure to open the file as text for the above illustration to make sense)
+
 Then, run:
 
+```
   python3 predict.py hdf5file
+```
 
 where hdf5file contains the test data.
 You may be required to install some dependency packages, but they are
 most likely already installed: e.g: torchvision, cv2, matplotlib.
 
 The results will be written into results.csv.
+
+The code is also available on GitHub at (https://github.com/ReemKish/msc-computer-vision-project)
 
 ~ Re'em
